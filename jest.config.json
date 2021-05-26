@@ -1,0 +1,18 @@
+{
+  "verbose":true,
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "moduleFileExtensions": ["js","ts"],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+  
+  "testMatch":[
+    "**/__tests__/**/*.+(ts|tsx|js)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js|mjs)"
+  ],
+  "testPathIgnorePatterns": [
+    "<rootDir>/node_modules/"
+  ]
+}
