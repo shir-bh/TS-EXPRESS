@@ -18,8 +18,8 @@ router.post(
       const valid = validate_book(req.body);
       if (!valid && validate_book.errors) throw validate_book.errors[0];
       const rows = await service.create_row(req.body);
-      const ok = { status: 200, message: `User Updated successfully` };
-      const fail = { status: 404, message: `Error in creating user ` };
+      const ok = { status: 200, message: `Row Updated successfully` };
+      const fail = { status: 404, message: `Error in creating row ` };
       const { status, message } = rows ? ok : fail;
       res.status(status).json({ message, result: rows });
     }
@@ -61,7 +61,7 @@ router.get(
       if (!user) {
         res
           .status(404)
-          .json({ message: `No user found. with id of ${req.params.id}` });
+          .json({ message: `No row found. with id of ${req.params.id}` });
         return;
       }
       res.status(200).json(user);
@@ -104,7 +104,7 @@ router.get(
       if (!result) {
         res
           .status(404)
-          .json({ message: `No views found. for id of ${req.params.id}` });
+          .json({ message: `No row found. for id of ${req.params.id}` });
         return;
       }
       res.status(200).json(result);
