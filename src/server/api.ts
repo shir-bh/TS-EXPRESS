@@ -3,7 +3,9 @@ import cors from "cors";
 import morgan from "morgan";
 import log from "@ajar/marker";
 import { connect } from "./db/mysql-connection";
-import book_router from "./modules/book/book.controller";
+import agents_router from "./modules/agent/agent.controller";
+import places_router from "./modules/places/places.controller";
+
 import { env } from "./utils/index";
 import { error_handler, not_found } from "./middleware/errors-handler";
 
@@ -18,7 +20,8 @@ app.use(morgan("dev"));
 
 // routing
 // app.use('/api/stories', story_router);
-app.use("/api/books", book_router);
+app.use("/api/agents", agents_router);
+app.use("/api/places", places_router);
 
 // central error handling
 app.use(error_handler);
